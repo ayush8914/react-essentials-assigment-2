@@ -3,14 +3,14 @@ import { useContext , useState } from "react"
 import TaskContext from "../context/TaskContext"
 
 
-function CreateTask(props : any) {
+function EditTask(props : any) {
   const [formData, setFormData] = useState({
-    title : "",
-    description : "",
-    priority : "" 
+    title : props.task.title,
+    description : props.task.description,
+    priority : props.task.priority 
   });
   const [error, setError] = useState({});
-  const {addTask} : any = useContext(TaskContext);
+  const {editTask} : any = useContext(TaskContext);
 
   const validate = ()=>{
      const err : any = {};
@@ -24,10 +24,10 @@ function CreateTask(props : any) {
     return Object.keys(err).length === 0
   }
 
-  const handleAddTask = () => {
+  const handleEditTask = () => {
     if(!validate()) return;
 
-    addTask({title: formData.title, description: formData.description, priority: formData.priority});
+    editTask({id: props.task.id,title: formData.title, description: formData.description, priority: formData.priority});
     props.onClose();
 
   }
@@ -62,11 +62,11 @@ function CreateTask(props : any) {
           )}
           <div className="flex flex-row justify-center items-center mt-4">
               <button className="bg-gray-700 h-fit w-fit text-lg hover:bg-gray-800 text-white  py-2 px-4 rounded"
-              onClick={handleAddTask}>Add Task</button>
+              onClick={handleEditTask}>Edit Task</button>
           </div>
       </div>
     </div>
   )
 }
 
-export default CreateTask
+export default EditTask
