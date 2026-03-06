@@ -1,12 +1,12 @@
 import AppBar from "./AppBar"
 import SideBar from "./SideBar"
 import { useState, useEffect} from "react";
-
 import TaskList from "./TaskList";
 import Model  from "./Model";
 import CreateTask from "./CreateTask";
 import Button from "./Button";
 import DeleteAlert from "./DeleteAlert";
+import Stats from "./Stats";
 
 function Home() {
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
@@ -37,7 +37,11 @@ useEffect(() => {
             <div className={`w-full`}>
                 <div>
                     <AppBar handleToggle={()=>setIsSideBarOpen(!isSideBarOpen)} isSideBarOpen={isSideBarOpen}/>
-                    <div className="pl-6 pt-6 pr-6 flex justify-end gap-3">
+                    <div className="pl-6 pt-6 pr-6 flex justify-between">
+                        <div>
+                            <Stats />
+                        </div>
+                        <div className="flex gap-4">
                              <div className="h-fit w-fit">
                                 <Button  label="Create Task" bgColor="bg-gray-700" bgColorHover="hover:bg-gray-800" onClick={() => setIsModelOpen(true)} />
                                 <Model isOpen={isModelOpen} onClose={() => setIsModelOpen(false)} title="Create Task" showCloseButton={true}>
@@ -50,6 +54,7 @@ useEffect(() => {
                                     <DeleteAlert isDeleteAll={true} alertMsg={"Are you sure you want to delete all tasks?"} onClose={() => setIsDeleteAllModelOpen(false)}/>
                                 </Model>
                              </div>
+                        </div>
                     </div>
                         <div className="p-6">
                             <TaskList />

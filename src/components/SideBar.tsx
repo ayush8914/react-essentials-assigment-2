@@ -7,7 +7,7 @@ function SideBar(props : {
     isSidebarOpen : boolean
 }) {
 
-const {taskStats, filterTask} : any = useContext(TaskContext)
+const {taskStats, filterTask, filter} : any = useContext(TaskContext)
 
   return (
     <>
@@ -36,9 +36,9 @@ const {taskStats, filterTask} : any = useContext(TaskContext)
             </div>
         </div>
         <div className="mt-10 flex flex-col gap-2">
-           <MenuItem menuName={"All Tasks"} itemCount={taskStats.total} onClick={() => filterTask("all")} />
-           <MenuItem menuName={"Completed"} itemCount={taskStats.completed} onClick={() => filterTask("completed")} />
-           <MenuItem menuName={"Pending"} itemCount={taskStats.pending} onClick={() => filterTask("pending")} />
+           <MenuItem menuName={"All Tasks"} itemCount={taskStats.total} onClick={() => filterTask("all")} active={filter === "all"} />
+           <MenuItem menuName={"Completed"} itemCount={taskStats.completed} onClick={() => filterTask("completed")} active={filter === "completed"} />
+           <MenuItem menuName={"Pending"} itemCount={taskStats.pending} onClick={() => filterTask("pending")} active={filter === "pending"} />
         </div>
     </div>
     </>

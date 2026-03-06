@@ -13,7 +13,7 @@ function TaskItem(props: {
   const {toggleTask} : any = useContext(TaskContext);
 
   return (
-    <div className={`shadow-md p-5 rounded-md hover:bg-gray-100 hover:-translate-y-1 `}>
+    <div className={`shadow-md p-5 rounded-md hover:bg-gray-100 hover:-translate-y-1 ${props.task.isCompleted ? "bg-gray-800/10" : ""}`}>
         <div key={props.task.id} className="flex justify-between">
                 <div className="flex flex-col">
                     <div className="flex gap-4 mb-3">
