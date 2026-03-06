@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom';
 
 
 const Portal = ({children , portalId = 'portal-root'} : {
-    children : React.ReactNode,
-    portalId : string
+    children : Element,
+    portalId? : string
 }) => {
     const [container, setContainer] = useState<HTMLElement | null>(null);
    
