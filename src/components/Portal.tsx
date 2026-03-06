@@ -1,9 +1,9 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, type JSX} from 'react';
 import { createPortal } from 'react-dom';
 
 
 const Portal = ({children , portalId = 'portal-root'} : {
-    children : Element,
+    children : JSX.Element | React.ReactNode,
     portalId? : string
 }) => {
     const [container, setContainer] = useState<HTMLElement | null>(null);
