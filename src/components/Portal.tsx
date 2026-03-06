@@ -1,8 +1,11 @@
-import {useRef, useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import { createPortal } from 'react-dom';
 
 
-const Portal = ({children , portalId = 'portal-root'}) => {
+const Portal = ({children , portalId = 'portal-root'} : {
+    children : React.ReactNode,
+    portalId : string
+}) => {
     const [container, setContainer] = useState<HTMLElement | null>(null);
    
     useEffect(()=>{
