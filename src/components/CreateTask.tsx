@@ -9,7 +9,7 @@ function CreateTask(props : any) {
     description : "",
     priority : "" 
   });
-  const [error, setError] = useState({});
+  const [error, setError] = useState<any>();
   const {addTask} : any = useContext(TaskContext);
 
   const validate = ()=>{
