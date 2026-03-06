@@ -39,12 +39,12 @@ function CreateTask(props : any) {
             ...formData,
             title : e.target.value
           })} />
-          {error.title && (
+          {error?.title && (
           <p className="text-red-500 text-sm mb-2">{error.title}</p>
           )}
           <InputBox label="Task Description" placeHolder="Enter Task Description" value={formData.description}
           onChange={(e:any) => setFormData({...formData, description : e.target.value})} />
-          {error.description && (
+          {error?.description && (
                 <p className="text-red-500 text-sm mb-2">{error.description}</p>
           )}
           <label className="text-md font-sans font-semibold mb-2">Priority</label>
@@ -57,7 +57,7 @@ function CreateTask(props : any) {
             <option value="medium">Medium</option>
             <option value="low">Low</option>
           </select>
-          {error.priority && (
+          {error?.priority && (
                 <p className="text-red-500 text-sm mb-2">{error.priority}</p>
           )}
           <div className="flex flex-row justify-center items-center mt-4">
