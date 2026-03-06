@@ -59,7 +59,15 @@ export const TaskReducer = (state: any, action: TaskAction) => {
                 ...state,
                 filter : action.payload
             })
-            
+        case Actions.UNDO_TASK:
+                if (state.history.length > 0) {
+                    const previous = state.history[0]
+                return {
+                    ...previous,
+                    history: state.history.slice(1)
+                }
+            }
+                return state
         default :
             throw new Error(`Unknown  action:${action.type}`)
     }

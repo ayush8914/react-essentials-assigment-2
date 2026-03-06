@@ -43,6 +43,10 @@ function TaskContextProvider({children}: {children: ReactNode}) {
     dispatch({type: Actions.FILTER_TASK,payload:filter})
   }
 
+  const undoTask = () => {
+    dispatch({type: Actions.UNDO_TASK,payload:null})
+  }
+
    const taskStats = {
         total : state.tasks.length,
         completed : state.tasks.filter((task : Task) => task.isCompleted).length,
@@ -69,7 +73,8 @@ function TaskContextProvider({children}: {children: ReactNode}) {
         editTask,
         deleteAll,
         toggleTask,
-        filterTask
+        filterTask,
+        undoTask
   }
 
   return (

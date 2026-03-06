@@ -7,6 +7,7 @@ import CreateTask from "./CreateTask";
 import Button from "./Button";
 import DeleteAlert from "./DeleteAlert";
 import Stats from "./Stats";
+import Undo from "./Undo";
 
 function Home() {
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
@@ -37,11 +38,12 @@ useEffect(() => {
             <div className={`w-full`}>
                 <div>
                     <AppBar handleToggle={()=>setIsSideBarOpen(!isSideBarOpen)} isSideBarOpen={isSideBarOpen}/>
-                    <div className="pl-6 pt-6 pr-6 flex justify-between">
+                    <div className="pl-6 pt-6 pr-6 flex flex-col gap-5 sm:flex-row sm:justify-between">
                         <div>
                             <Stats />
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex gap-4 items-center">
+                             <Undo/>
                              <div className="h-fit w-fit">
                                 <Button  label="Create Task" bgColor="bg-gray-700" bgColorHover="hover:bg-gray-800" onClick={() => setIsModelOpen(true)} />
                                 <Model isOpen={isModelOpen} onClose={() => setIsModelOpen(false)} title="Create Task" showCloseButton={true}>
