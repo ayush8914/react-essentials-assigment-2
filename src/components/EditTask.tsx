@@ -9,7 +9,7 @@ function EditTask(props : any) {
     description : props.task.description,
     priority : props.task.priority 
   });
-  const [error, setError] = useState({});
+  const [error, setError] = useState<any>({});
   const {editTask} : any = useContext(TaskContext);
 
   const validate = ()=>{

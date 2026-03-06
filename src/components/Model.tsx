@@ -1,4 +1,4 @@
-import { useRef,useEffect, use } from "react";
+import { useRef,useEffect } from "react";
 import Portal from "./Portal";
 
 function Model({isOpen, onClose, title, children, showCloseButton=true} : {
@@ -8,8 +8,8 @@ function Model({isOpen, onClose, title, children, showCloseButton=true} : {
     children : React.ReactNode,
     showCloseButton : boolean
 }) {
-    const overlayRef = useRef(null);
-    const modelRef = useRef(null);
+    const overlayRef = useRef<HTMLDivElement>(null);
+    const modelRef = useRef<HTMLDivElement>(null);
     const lastFocusRef = useRef<any>(null);
     
   useEffect(() => {
@@ -65,12 +65,12 @@ function Model({isOpen, onClose, title, children, showCloseButton=true} : {
                 {title}
             </div>
             <div>
-              <button   onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors" // Tailwind: Hover effects
+             {showCloseButton && <button   onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors" // Tailwind: Hover effects
           aria-label="Close modal">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
-            </button>
+            </button>}
             </div>
           </div>
           <div className="space-y-4">
