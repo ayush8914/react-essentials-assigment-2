@@ -42,13 +42,14 @@ function CreateTask(props : any) {
           {error?.title && (
           <p className="text-red-500 text-sm mb-2">{error.title}</p>
           )}
-          <InputBox label="Task Description" placeHolder="Enter Task Description" value={formData.description}
+          <label className="text-md font-sans font-semibold mb-2">Task Description</label>
+          <textarea rows={4} className="border border-gray-300 rounded-sm px-3 py-1 text-gray-600 focus:outline-gray-400 mb-2" placeholder="Enter Task Description" value={formData.description}
           onChange={(e:any) => setFormData({...formData, description : e.target.value})} />
           {error?.description && (
                 <p className="text-red-500 text-sm mb-2">{error.description}</p>
           )}
           <label className="text-md font-sans font-semibold mb-2">Priority</label>
-          <select className="border border-gray-300 rounded-sm px-3 py-1" value={formData.priority} onChange={(e:any) => setFormData({
+          <select className="border border-gray-300 rounded-sm px-3 py-1 focus:outline-gray-400 text-gray-600" value={formData.priority} onChange={(e:any) => setFormData({
             ...formData,
             priority : e.target.value
           })}>

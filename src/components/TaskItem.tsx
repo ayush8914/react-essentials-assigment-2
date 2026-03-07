@@ -17,13 +17,13 @@ function TaskItem(props: {
         <div key={props.task.id} className="flex justify-between">
                 <div className="flex flex-col">
                     <div className="flex gap-4 mb-3">
-                          <h1 className={`font-semibold ${props.task.isCompleted ? "line-through" : ""}`}>{props.task.title}</h1>
+                          <h1 className={`font-semibold ${props.task.isCompleted ? "line-through" : ""}`}>{props.task.title.length > 40 ? props.task.title.slice(0, 40) + "..." : props.task.title}</h1>
                           <span className={`${props.task.priority === "low" ? "bg-green-100 text-green-800" : props.task.priority === "medium" ? "bg-yellow-100 text-yellow-800" : "bg-red-100 text-red-800"} text-xs font-semibold mr-2 px-2.5 py-0.5 rounded h-fit`}>
                               {props.task.priority}
                           </span>
                     </div>
                     <span className={`${props.task.isCompleted ? "line-through" : ""}`}>
-                        {props.task.description}
+                        {props.task.description.length > 100 ? props.task.description.slice(0, 100) + "..." : props.task.description}
                     </span>
                 </div>
                 <div>
