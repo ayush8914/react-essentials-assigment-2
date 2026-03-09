@@ -34,7 +34,7 @@ function CreateTask(props : any) {
 
   return (
     <div >
-      <div className="border border-gray-300 w-full p-5 rounded-md flex flex-col">
+      <div className= "w-full p-1 rounded-md flex flex-col">
           <InputBox label='Task Name'  placeHolder="Enter Task Name" value={formData.title.toString()} onChange={(e: any) => setFormData({
             ...formData,
             title : e.target.value

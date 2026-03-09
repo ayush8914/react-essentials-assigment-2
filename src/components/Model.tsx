@@ -59,7 +59,7 @@ function Model({isOpen, onClose, title, children, showCloseButton=true} : {
   return (
     <Portal>
     <div ref={overlayRef} onClick={handleOverLayClick} className="fixed inset-0 flex items-center justify-center p-40 bg-black/20 backdrop-blur-xs z-50" role="dialog" aria-modal="true" aria-labelledby="model-title">
-      <div ref={modelRef} className="bg-white rounded-md shadow-xl  w-full min-w-sm md:max-w-lg md:min-w-lg max-h-[90vh] overflow-y-auto p-6 relative focus:outline-none" tabIndex={-1}>
+      <div ref={modelRef} className="bg-white rounded-md shadow-xl  w-full min-w-sm md:max-w-lg md:min-w-lg max-h-[90vh] overflow-y-auto p-3 relative focus:outline-none" tabIndex={-1}>
           <div className="flex justify-between mb-3">
             <div className="text-xl font-semibold text-gray-900">
                 {title}

@@ -17,7 +17,7 @@ function DeleteAlert(props : any) {
   return (
     <div>
         <p className='mb-3 text-xl text-gray-600'>{props.alertMsg}</p>
-        <div className="flex gap-3">
+        <div className="flex gap-3 justify-end">
             <Button label="Delete" bgColor="bg-red-500" bgColorHover="hover:bg-red-600" onClick={handleDelete}/>
             <Button label="Cancel" bgColor="bg-gray-400" bgColorHover="hover:bg-gray-600" onClick={props.onClose}/>
         </div>

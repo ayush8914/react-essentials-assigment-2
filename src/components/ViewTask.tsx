@@ -1,7 +1,7 @@
 
 function ViewTask(props : any) {
   return (
-    <div className="border border-gray-300 rounded-md p-1 text-md">
+    <div className="rounded-md p-1 text-md">
         <div>
             <div className="flex justify-between items-start border-b px-2 py-1 border-gray-200">
                 <p className='mb-1 text-gray-600  pt-2'>
